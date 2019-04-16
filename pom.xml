@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.oilman.springboot</groupId>
-    <artifactId>actual-springboot-combat</artifactId>
+    <artifactId>spring</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
