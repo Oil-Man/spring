@@ -20,6 +20,7 @@ public class ServletAsyncController {
     @RequestMapping("defer")
     @ResponseBody
     public DeferredResult<String> deferredCall(){
+        System.out.println("deferredCall");
         return pushService.getAsyncUpdate();
     }
 
