@@ -10,14 +10,19 @@
 </head>
 <body>
 <script type="text/javascript" src="${ctxPath}/static/js/jquery-3.3.1.min.js"></script>
-<script>
+<script type="text/javascript" src="${ctxPath}/static/js/jquery.timers-1.2.js"></script>
+<script type="text/javascript">
+
+    //$('body').everyTime('5s',deferred);
+
     deferred();
     function deferred () {
         $.get('defer', function (data) {
             console.log(data);
             deferred();
-        })
-    };
+        });
+    }
+
 </script>
 </body>
 </html>

@@ -30,7 +30,6 @@ import java.util.List;
 @EnableWebMvc //开启一些mvc的默认配置
 @ComponentScan("com.oilman.springmvc4")
 @EnableScheduling
-@EnableAsync
 public class MvcConfiguration extends WebMvcConfigurerAdapter{
 
     //配置视图解析器
@@ -102,7 +101,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
         jsonConverter.setDefaultCharset(Charset.forName("UTF-8"));
         converters.add(jsonConverter);
-        jsonConverter.setJsonPrefix("Jackson");
+        //jsonConverter.setJsonPrefix("Jackson");
 
         //String消息转化器
         StringHttpMessageConverter stringConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));

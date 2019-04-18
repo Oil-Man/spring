@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ProfileConfiguration.class})
 @ActiveProfiles("dev")
-public class JunitTest {
+public class SpringJunitTest {
     @Autowired
     private DBProperties dbProperties;
 
