@@ -7,8 +7,12 @@ import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 /**
  * 描述：扩展SpringBoot MVC自动配置
@@ -26,6 +30,20 @@ public class WebMvcExtendConfiguration implements WebMvcConfigurer{
     public void addViewControllers(ViewControllerRegistry registry) {
         //404错误跳转404.html
         registry.addViewController("/400").setViewName("/error/400");
+    }
+
+    //springboot默认错误处理路径静态资源根目录下的error/错误码.html
+    @Override
+    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
+        HandlerExceptionResolver resolver = (request, response, object, ex) -> {
+            if (ex instanceof NullPointerException){
+                ModelAndView modelAndView = new ModelAndView("/error/500");
+                modelAndView.addObject("msg", ex.getMessage());
+                return modelAndView;
+            }
+            return null;
+        };
+        resolvers.add(resolver);
     }
 
     /**
