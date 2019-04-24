@@ -30,6 +30,8 @@ public class WebMvcExtendConfiguration implements WebMvcConfigurer{
     public void addViewControllers(ViewControllerRegistry registry) {
         //404错误跳转404.html
         registry.addViewController("/400").setViewName("/error/400");
+        //webSocket快捷地址映射
+        registry.addViewController("/ws").setViewName("/ws");
     }
 
     //springboot默认错误处理路径静态资源根目录下的error/错误码.html

@@ -76,7 +76,7 @@
         <logger name="org.springframework" level="INFO"/>
         <logger name="org.mybatis" level="INFO"/>
 
-        <root level="all">
+        <root level="debug">
             <appender-ref ref="Console"/>
             <!-- <appender-ref ref="RollingFileInfo"/>
              <appender-ref ref="RollingFileWarn"/>
